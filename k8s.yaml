@@ -1,5 +1,5 @@
 ---
-- hosts: webservers
+- hosts: k8s_master
   tasks:
     - name: test connection
       ping:
