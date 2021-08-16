@@ -9,8 +9,25 @@ terraform apply'''
     }
 
     stage('triger ansible') {
-      steps {
-        sh 'ansible-playbook'
+      parallel {
+        stage('triger ansible') {
+          steps {
+            sh 'ansible-playbook'
+          }
+        }
+
+        stage('show error') {
+          steps {
+            error 'error'
+          }
+        }
+
+        stage('finish') {
+          steps {
+            sh 'ls'
+          }
+        }
+
       }
     }
 
