@@ -1,21 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('step 1') {
+    stage('terraform init and apply') {
       steps {
-        echo 'test'
+        sh '''terraform init 
+terraform apply'''
       }
     }
 
-    stage('step 2') {
+    stage('triger ansible') {
       steps {
-        sleep 5
-      }
-    }
-
-    stage('step3') {
-      steps {
-        sh 'ls'
+        sh 'ansible-playbook'
       }
     }
 
