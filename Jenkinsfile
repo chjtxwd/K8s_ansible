@@ -15,7 +15,7 @@ pipeline {
 
     stage('step3') {
       steps {
-        error 'warning'
+        sh 'ls'
       }
     }
 
